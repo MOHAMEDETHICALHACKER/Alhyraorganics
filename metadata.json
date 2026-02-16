@@ -1,0 +1,8 @@
+{
+  "name": "Al Hyra Organics",
+  "description": "A premium production-ready organic eCommerce platform featuring a customer storefront and a comprehensive admin dashboard for managing products, orders, and analytics.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
