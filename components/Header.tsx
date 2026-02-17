@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { ShoppingCart, User as UserIcon, LogOut, Menu, X, LayoutDashboard } from 'lucide-react';
 import { User, CartItem } from '../types';
+import { Logo } from './Logo';
 
 interface HeaderProps {
   user: User | null;
@@ -16,18 +17,12 @@ export const Header: React.FC<HeaderProps> = ({ user, cart, onNavigate, onLogout
 
   return (
     <header className="bg-white border-b sticky top-0 z-50">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-24 flex items-center justify-between">
         <div 
-          className="flex items-center gap-2 cursor-pointer" 
+          className="flex items-center cursor-pointer py-2" 
           onClick={() => onNavigate('home')}
         >
-          <div className="w-10 h-10 bg-organic-primary rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-xl">A</span>
-          </div>
-          <div>
-            <h1 className="text-xl font-bold text-organic-800 leading-none">AL HYRA</h1>
-            <p className="text-[10px] text-earth tracking-widest font-semibold">ORGANICS</p>
-          </div>
+          <Logo className="h-20 w-auto" />
         </div>
 
         {/* Desktop Nav */}

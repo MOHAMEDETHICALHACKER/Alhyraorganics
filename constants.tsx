@@ -52,7 +52,9 @@ export const PRELOADED_PRODUCTS: Product[] = [
     category: 'Health Mix',
     ingredients: 'Dehydrated Apple, Beetroot, Carrot, Country Sugar, Cardamom.',
     nutritionalValue: 'Energy: 380kcal, Protein: 4g, Iron: 12mg',
-    fssai: '22423567000123'
+    fssai: '22423567000123',
+    rating: 4.8,
+    reviewCount: 124
   },
   {
     id: '2',
@@ -62,7 +64,9 @@ export const PRELOADED_PRODUCTS: Product[] = [
     weight: '250g',
     stock: 30,
     image: 'https://picsum.photos/seed/beet/600/600',
-    category: 'Health Mix'
+    category: 'Health Mix',
+    rating: 4.5,
+    reviewCount: 89
   },
   {
     id: '3',
@@ -72,7 +76,9 @@ export const PRELOADED_PRODUCTS: Product[] = [
     weight: '250g',
     stock: 45,
     image: 'https://picsum.photos/seed/multi/600/600',
-    category: 'Breakfast'
+    category: 'Breakfast',
+    rating: 4.7,
+    reviewCount: 56
   },
   {
     id: '4',
@@ -82,7 +88,9 @@ export const PRELOADED_PRODUCTS: Product[] = [
     weight: '250g',
     stock: 25,
     image: 'https://picsum.photos/seed/carrot/600/600',
-    category: 'Health Mix'
+    category: 'Health Mix',
+    rating: 4.3,
+    reviewCount: 42
   },
   {
     id: '5',
@@ -93,7 +101,9 @@ export const PRELOADED_PRODUCTS: Product[] = [
     stock: 15,
     image: 'https://picsum.photos/seed/banana/600/600',
     category: 'Kids Nutrition',
-    fssai: '22424309000052'
+    fssai: '22424309000052',
+    rating: 4.9,
+    reviewCount: 210
   },
   {
     id: '6',
@@ -103,7 +113,9 @@ export const PRELOADED_PRODUCTS: Product[] = [
     weight: '250g',
     stock: 40,
     image: 'https://picsum.photos/seed/talbina/600/600',
-    category: 'Prophetic Medicine'
+    category: 'Prophetic Medicine',
+    rating: 4.6,
+    reviewCount: 75
   },
   {
     id: '7',
@@ -113,7 +125,9 @@ export const PRELOADED_PRODUCTS: Product[] = [
     weight: '250g',
     stock: 20,
     image: 'https://picsum.photos/seed/pumpkin/600/600',
-    category: 'Health Mix'
+    category: 'Health Mix',
+    rating: 4.4,
+    reviewCount: 31
   },
   {
     id: '8',
@@ -123,6 +137,8 @@ export const PRELOADED_PRODUCTS: Product[] = [
     weight: '250g',
     stock: 60,
     image: 'https://picsum.photos/seed/ragi/600/600',
-    category: 'Breakfast'
+    category: 'Breakfast',
+    rating: 4.8,
+    reviewCount: 92
   }
 ];

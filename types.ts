@@ -21,6 +21,8 @@ export interface Product {
   ingredients?: string;
   nutritionalValue?: string;
   fssai?: string;
+  rating?: number;
+  reviewCount?: number;
 }
 
 export interface CartItem extends Product {

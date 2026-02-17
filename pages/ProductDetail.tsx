@@ -6,12 +6,23 @@ import { Product } from '../types';
 interface ProductDetailProps {
   product: Product;
   onAddToCart: (product: Product) => void;
+  onAddRating: (productId: string, rating: number) => void;
   onNavigate: (page: string) => void;
 }
 
-export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart, onNavigate }) => {
+export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart, onAddRating, onNavigate }) => {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('description');
+  const [userRating, setUserRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [hasRated, setHasRated] = useState(false);
+
+  const handleRating = (rating: number) => {
+    if (hasRated) return;
+    setUserRating(rating);
+    onAddRating(product.id, rating);
+    setHasRated(true);
+  };
 
   return (
     <div className="container mx-auto px-4 py-12 animate-fadeIn">
@@ -41,9 +52,27 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCa
         {/* Content */}
         <div className="flex flex-col">
           <div className="mb-8">
-            <span className="bg-organic-100 text-organic-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">
-              {product.category}
-            </span>
+            <div className="flex justify-between items-start mb-4">
+              <span className="bg-organic-100 text-organic-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest inline-block">
+                {product.category}
+              </span>
+              <div className="flex flex-col items-end">
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      size={18} 
+                      className={`${i < Math.round(product.rating || 0) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-200'} `}
+                    />
+                  ))}
+                  <span className="ml-1 text-sm font-bold text-gray-900">{product.rating || 'New'}</span>
+                </div>
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">
+                  Based on {product.reviewCount || 0} reviews
+                </p>
+              </div>
+            </div>
+            
             <h1 className="text-4xl font-bold text-organic-900 mb-2">{product.name}</h1>
             <div className="flex items-center gap-4 mb-4">
               <span className="text-organic-600 font-bold bg-organic-50 px-2 py-0.5 rounded text-xs">IN STOCK</span>
@@ -56,6 +85,46 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCa
           </div>
 
           <div className="space-y-6">
+            {/* Interactive Rating Section */}
+            {!hasRated ? (
+              <div className="bg-gray-50 p-6 rounded-3xl border border-dashed border-gray-200">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Rate this product</p>
+                <div className="flex items-center gap-2">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <button
+                      key={star}
+                      onMouseEnter={() => setHoverRating(star)}
+                      onMouseLeave={() => setHoverRating(0)}
+                      onClick={() => handleRating(star)}
+                      className="transition-transform active:scale-90"
+                    >
+                      <Star 
+                        size={28} 
+                        className={`transition-colors ${star <= (hoverRating || userRating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                      />
+                    </button>
+                  ))}
+                  <span className="ml-4 text-sm font-bold text-gray-600">
+                    {hoverRating === 1 && "Poor"}
+                    {hoverRating === 2 && "Fair"}
+                    {hoverRating === 3 && "Good"}
+                    {hoverRating === 4 && "Excellent"}
+                    {hoverRating === 5 && "Outstanding!"}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-organic-50 p-6 rounded-3xl border border-organic-100 flex items-center justify-between">
+                <div>
+                   <p className="text-xs font-bold text-organic-700 uppercase tracking-widest mb-1">Thanks for your feedback!</p>
+                   <p className="text-sm font-medium text-organic-900">You rated this {userRating} stars.</p>
+                </div>
+                <div className="flex">
+                  {[...Array(userRating)].map((_, i) => <Star key={i} size={16} className="fill-organic-primary text-organic-primary" />)}
+                </div>
+              </div>
+            )}
+
             <div className="flex items-center gap-6">
               <div className="flex items-center border border-gray-200 rounded-2xl p-1 w-fit bg-white shadow-sm">
                 <button 

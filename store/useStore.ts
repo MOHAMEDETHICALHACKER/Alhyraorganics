@@ -109,6 +109,14 @@ export const useStore = () => {
     setAppliedCoupon(null);
   }, []);
 
+  const addCoupon = useCallback((coupon: Coupon) => {
+    setCoupons(prev => [coupon, ...prev]);
+  }, []);
+
+  const deleteCoupon = useCallback((code: string) => {
+    setCoupons(prev => prev.filter(c => c.code !== code));
+  }, []);
+
   // Order logic
   const placeOrder = useCallback((order: Order) => {
     setOrders(prev => [order, ...prev]);
@@ -145,6 +153,20 @@ export const useStore = () => {
     setProducts(prev => prev.map(p => p.id === product.id ? product : p));
   }, []);
 
+  // Rating logic
+  const addRating = useCallback((productId: string, rating: number) => {
+    setProducts(prev => prev.map(p => {
+      if (p.id === productId) {
+        const currentRating = p.rating || 0;
+        const currentCount = p.reviewCount || 0;
+        const newCount = currentCount + 1;
+        const newRating = Number(((currentRating * currentCount + rating) / newCount).toFixed(1));
+        return { ...p, rating: newRating, reviewCount: newCount };
+      }
+      return p;
+    }));
+  }, []);
+
   // Static Pages logic
   const updateStaticPage = useCallback((id: string, title: string, content: string) => {
     setStaticPages(prev => prev.map(page => 
@@ -172,9 +194,12 @@ export const useStore = () => {
     appliedCoupon,
     applyCoupon,
     removeCoupon,
+    addCoupon,
+    deleteCoupon,
     addProduct,
     deleteProduct,
     updateProduct,
+    addRating,
     staticPages,
     updateStaticPage
   };

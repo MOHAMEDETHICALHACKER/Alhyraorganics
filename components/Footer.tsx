@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Logo } from './Logo';
 
 interface FooterProps {
   onNavigate?: (page: string) => void;
@@ -11,14 +12,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <span className="text-organic-primary font-bold text-xl">A</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white leading-none">AL HYRA</h1>
-                <p className="text-[10px] text-cream tracking-widest font-semibold uppercase">ORGANICS</p>
-              </div>
+            <div 
+              className="flex items-center mb-6 cursor-pointer" 
+              onClick={() => onNavigate?.('home')}
+            >
+              <Logo variant="light" className="h-20 w-auto" />
             </div>
             <p className="text-gray-300 leading-relaxed mb-6">
               Pioneering premium organic nutrition since 2015. We bring nature's purest gifts directly to your doorstep.

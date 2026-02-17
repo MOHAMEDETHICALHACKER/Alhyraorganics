@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShoppingCart, Eye } from 'lucide-react';
+import { ShoppingCart, Eye, Star } from 'lucide-react';
 import { Product } from '../types';
 
 interface ProductCardProps {
@@ -39,15 +39,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, 
       </div>
 
       <div className="p-5 flex flex-col flex-grow">
-        <h3 className="font-bold text-gray-900 group-hover:text-organic-primary transition-colors cursor-pointer mb-1" onClick={() => onViewDetails(product)}>
-          {product.name}
-        </h3>
+        <div className="flex justify-between items-start mb-1">
+          <h3 className="font-bold text-gray-900 group-hover:text-organic-primary transition-colors cursor-pointer" onClick={() => onViewDetails(product)}>
+            {product.name}
+          </h3>
+          <div className="flex items-center gap-1">
+            <Star size={14} className="fill-yellow-400 text-yellow-400" />
+            <span className="text-xs font-bold text-gray-700">{product.rating || 'New'}</span>
+          </div>
+        </div>
         <p className="text-gray-500 text-xs mb-3 line-clamp-2">{product.description}</p>
         
         <div className="mt-auto flex items-center justify-between">
           <div>
-            <span className="text-xs text-gray-400 block">{product.weight}</span>
-            <span className="text-lg font-bold text-organic-900">₹{product.price}</span>
+            <div className="flex flex-col">
+               <span className="text-xs text-gray-400">{product.weight}</span>
+               <span className="text-lg font-bold text-organic-900">₹{product.price}</span>
+            </div>
           </div>
           <button 
             onClick={() => onAddToCart(product)}
