@@ -48,7 +48,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 225,
     weight: '250g',
     stock: 50,
-    image: 'https://picsum.photos/seed/abc/600/600',
+    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80',
     category: 'Health Mix',
     ingredients: 'Dehydrated Apple, Beetroot, Carrot, Country Sugar, Cardamom.',
     nutritionalValue: 'Energy: 380kcal, Protein: 4g, Iron: 12mg',
@@ -63,7 +63,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 175,
     weight: '250g',
     stock: 30,
-    image: 'https://picsum.photos/seed/beet/600/600',
+    image: 'https://images.unsplash.com/photo-1596525753634-93302da93673?auto=format&fit=crop&w=800&q=80',
     category: 'Health Mix',
     rating: 4.5,
     reviewCount: 89
@@ -75,7 +75,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 200,
     weight: '250g',
     stock: 45,
-    image: 'https://picsum.photos/seed/multi/600/600',
+    image: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80',
     category: 'Breakfast',
     rating: 4.7,
     reviewCount: 56
@@ -87,7 +87,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 175,
     weight: '250g',
     stock: 25,
-    image: 'https://picsum.photos/seed/carrot/600/600',
+    image: 'https://images.unsplash.com/photo-1598155523122-38423bb4d601?auto=format&fit=crop&w=800&q=80',
     category: 'Health Mix',
     rating: 4.3,
     reviewCount: 42
@@ -99,7 +99,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 185,
     weight: '250g',
     stock: 15,
-    image: 'https://picsum.photos/seed/banana/600/600',
+    image: 'https://images.unsplash.com/photo-1623081048684-25cb27e75344?auto=format&fit=crop&w=800&q=80',
     category: 'Kids Nutrition',
     fssai: '22424309000052',
     rating: 4.9,
@@ -112,7 +112,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 125,
     weight: '250g',
     stock: 40,
-    image: 'https://picsum.photos/seed/talbina/600/600',
+    image: 'https://images.unsplash.com/photo-1640188636418-4e1a00a4d07b?auto=format&fit=crop&w=800&q=80',
     category: 'Prophetic Medicine',
     rating: 4.6,
     reviewCount: 75
@@ -124,7 +124,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 175,
     weight: '250g',
     stock: 20,
-    image: 'https://picsum.photos/seed/pumpkin/600/600',
+    image: 'https://images.unsplash.com/photo-1570534536531-c3bcd6b963cc?auto=format&fit=crop&w=800&q=80',
     category: 'Health Mix',
     rating: 4.4,
     reviewCount: 31
@@ -136,7 +136,7 @@ export const PRELOADED_PRODUCTS: Product[] = [
     price: 200,
     weight: '250g',
     stock: 60,
-    image: 'https://picsum.photos/seed/ragi/600/600',
+    image: 'https://images.unsplash.com/photo-1610725663727-08799a997893?auto=format&fit=crop&w=800&q=80',
     category: 'Breakfast',
     rating: 4.8,
     reviewCount: 92

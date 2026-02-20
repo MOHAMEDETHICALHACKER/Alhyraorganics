@@ -13,6 +13,13 @@
     body {
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
+      background-color: #fdfbf7; /* Warm malt white */
+      background-image: radial-gradient(#8B5A2B 0.5px, transparent 0.5px), radial-gradient(#8B5A2B 0.5px, #fdfbf7 0.5px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      background-attachment: fixed;
+      background-blend-mode: soft-light;
+      opacity: 0.98;
     }
     .font-montserrat {
       font-family: 'Montserrat', sans-serif;
@@ -48,27 +55,69 @@
     .animate-slideUp {
       animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    /* 3D Effects */
+    .card-3d {
+      background: linear-gradient(145deg, #ffffff, #f4efe9);
+      box-shadow: 8px 8px 16px #e6dfd5, -8px -8px 16px #ffffff;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .btn-3d {
+      background: linear-gradient(145deg, #95612e, #7d5127);
+      box-shadow: 5px 5px 10px #764d25, -5px -5px 10px #a06731;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-3d:active {
+      background: linear-gradient(145deg, #7d5127, #95612e);
+      box-shadow: inset 5px 5px 10px #613f1e, inset -5px -5px 10px #b57738;
+    }
+    .text-3d {
+      text-shadow: 2px 2px 4px rgba(139, 90, 43, 0.2);
+    }
   </style>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
+            // Updated to "Malt Matrix" Palette - Warm browns, beiges, and caramels
             organic: {
+              50: '#f9f6f3',  // Very light cream
+              100: '#f0e6da', // Light beige
+              200: '#dfcbb0', // Malt beige
+              300: '#cba882', // Light caramel
+              400: '#b88557', // Caramel
+              500: '#a66838', // Bronze/Malt (New Primary)
+              600: '#89512d', // Deep Bronze
+              700: '#6d3f26', // Chocolate
+              800: '#5a3424', // Dark Chocolate
+              900: '#4a2c20', // Espresso
+              primary: '#8B5A2B' // Main brand color (Deep Malt)
+            },
+            // Keeping green for accents/freshness indicators
+            leaf: {
               50: '#f0fdf4',
               100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
               500: '#22c55e',
               600: '#16a34a',
               700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
-              primary: '#2E7D32'
             },
-            cream: '#F5F5DC',
-            earth: '#8B4513'
+            cream: '#fcfbf7',
+            earth: '#5D4037'
+          },
+          boxShadow: {
+            'malt': '0 10px 25px -5px rgba(139, 90, 43, 0.15), 0 8px 10px -6px rgba(139, 90, 43, 0.1)',
+            'inner-malt': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+            'floating': '0 20px 25px -5px rgba(74, 44, 32, 0.15), 0 10px 10px -5px rgba(74, 44, 32, 0.1)',
+            'glow': '0 0 15px rgba(139, 90, 43, 0.2)'
           }
         }
       }
