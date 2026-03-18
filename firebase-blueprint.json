@@ -1,0 +1,102 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["ADMIN", "CUSTOMER"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role", "createdAt"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Product information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "weight": { "type": "string" },
+        "stock": { "type": "number" },
+        "image": { "type": "string" },
+        "category": { "type": "string" },
+        "ingredients": { "type": "string" },
+        "nutritionalValue": { "type": "string" },
+        "fssai": { "type": "string" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" }
+      },
+      "required": ["id", "name", "price", "stock", "image", "category"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Order information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "items": { "type": "array" },
+        "totalAmount": { "type": "number" },
+        "discountAmount": { "type": "number" },
+        "couponCode": { "type": "string" },
+        "paymentStatus": { "type": "string", "enum": ["Paid", "Pending", "COD"] },
+        "orderStatus": { "type": "string", "enum": ["Pending", "Confirmed", "Packed", "Shipped", "Delivered"] },
+        "sellerNotes": { "type": "string" },
+        "address": { "type": "object" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "items", "totalAmount", "paymentStatus", "orderStatus", "address", "createdAt"]
+    },
+    "Coupon": {
+      "title": "Coupon",
+      "description": "Discount coupon",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "discountPercentage": { "type": "number" },
+        "expiryDate": { "type": "string" }
+      },
+      "required": ["code", "discountPercentage", "expiryDate"]
+    },
+    "StaticPage": {
+      "title": "StaticPage",
+      "description": "Static content page",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "lastUpdated": { "type": "string" }
+      },
+      "required": ["id", "title", "content", "lastUpdated"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Product catalog"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders"
+    },
+    "/coupons/{code}": {
+      "schema": "Coupon",
+      "description": "Discount coupons"
+    },
+    "/staticPages/{pageId}": {
+      "schema": "StaticPage",
+      "description": "Static pages content"
+    }
+  }
+}
